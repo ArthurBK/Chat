@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat</title>
+	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<%= render 'layouts/user_header' %>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<div class="col-centered center-devise">
+
+					<%= yield %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
