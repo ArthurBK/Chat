@@ -11,3 +11,112 @@
 
 	    width: 175px;
 }
+
+.rounded-border {
+	border: 1px solid grey;
+	border-radius: 35px;
+	padding: 10px 24px 10px 35px;
+	background-color: white;
+}
+#chatbox {
+	overflow-y: scroll;
+	height: 650px;
+    font-size: 15px;
+}
+
+
+#chatbox::-webkit-scrollbar{
+  width: 18px;
+  border-radius: 20px;
+}
+
+#chatbox::-webkit-scrollbar-track{
+  background: #e8e8e8;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+  width: 24px;
+  background: #337ab7;
+  /*border: 5px solid #CCEEF4;*/
+  border-radius: 15px;
+}
+
+#chat-message {
+
+	border: 1px solid grey;
+	border-radius: 35px;
+	height: 150px;
+}
+
+.display-inline {
+	display: inline;
+}
+
+
+.display-inline div {
+	display: inline-block !important;
+}
+
+#post_content {
+	flex:4;
+    height: 100px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    font-size: 20px;
+    padding: 10px;
+    resize: none;
+}
+#post_content:focus {
+	outline: none;
+}
+
+#new_post {
+	margin-top: 20px;
+display: flex;
+
+}
+
+#button-message-home {
+    border-radius: 17px;
+    margin: 0 7px;
+    flex: 0.5;
+    font-size: 20px;
+}
+
+
+#all { 
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+   }
+
+#navbar { 
+    flex: 1;
+    /*background-color: #f3f3f3;*/
+   }
+
+#main { 
+    position: fixed;
+    left: 19%;
+    top: 20%;
+    /*background: url(slack);*/
+    /*background-size: cover;*/
+    /*-webkit-filter: opacity(.2);*/
+  	/*filter: opacity(.2);*/
+   }
+#bckg { 
+	flex: 20;
+    display: block;
+    background: url(slack);
+    background-size: cover;
+    -webkit-filter: opacity(.2);
+  	filter: opacity(.2);
+   }
+
+#chat-window {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}

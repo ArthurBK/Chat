@@ -8,16 +8,25 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    cookies.signed[:user_id] = current_user.id
     super
+    if current_user
+      cookies.signed[:user_id] = current_user.id
+      # redirect_to new_post_path
+    end
   end
 
   # DELETE /resource/sign_out
-  def destroy
-    super
-  end
+  # def destroy
+  #   super
+  # end
 
-  # protected
+  protected
+
+  # def after_sign_up_path_for(resource)
+    # super(resource)
+  # byebug
+    # new_post_path
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
