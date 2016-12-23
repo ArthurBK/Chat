@@ -11,6 +11,7 @@ class Users::SessionsController < Devise::SessionsController
     super
     if current_user
       cookies.signed[:user_id] = current_user.id
+      # byebug
       # redirect_to new_post_path
     end
   end

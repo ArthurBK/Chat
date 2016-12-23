@@ -8,6 +8,7 @@ module ApplicationCable
 
 		protected
 		def find_verified_user
+			# byebug
 			if current_user = User.find_by(id: cookies.signed[:user_id])
 				current_user
 			else

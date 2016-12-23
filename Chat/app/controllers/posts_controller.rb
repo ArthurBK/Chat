@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     # byebug
     # respond_to do |format|
       if @post.save
-        ActionCable.server.broadcast 'chat_channel',
+        ActionCable.server.broadcast 'chatroom_channel',
                                    content:  @post.content,
                                    name: current_user.name
         head :ok

@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require rails_emoji_picker
