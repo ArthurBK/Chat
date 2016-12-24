@@ -1,15 +1,16 @@
 $(document).on('turbolinks:load', function() {
 
- MakeMessageChannel = function(chatroomName) { 
+ MakeMessageChannel = function(chatroomName) {
   App.cable.subscriptions.create({
     channel: 'ChatroomChannel',
-    chatroom: chatroomName }, {  
+    chatroom: chatroomName }, {
   received: function(data) {
-  // console.log(data)
+  console.log("#" + chatroomName);
+  console.log("received_data");
     // $("#messages").removeClass('hidden')
     // return $('#messages').append(this.renderMessage(data));
-    $('#chatbox').append(this.renderMessage(data));
-    $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+    $("#" + chatroomName).append(this.renderMessage(data));
+    $("#" + chatroomName).scrollTop($("#" + chatroomName)[0].scrollHeight);
   },
 
   subscribed: function() {
@@ -23,6 +24,11 @@ $(document).on('turbolinks:load', function() {
   }
 });
 }
+
+  $("#chatrooms").on("click", function(event){
+  // need to check if has firstChild
+    // $("#" + event.target.firstChild.textContent).hide();
+  });
 
 
   $('#post_content').on("keydown", function(event) {
@@ -39,10 +45,24 @@ $(document).on('turbolinks:load', function() {
     $('#post_content').val("");
   });
 
+  $('#new_chatroom').on('ajax:success', function(e, data, status, xhr){
+    $('#chatroom_name').val("");
+  });
+
+
+
+    $('#new_chatroom').on("keydown", function(event) {
+      if (event.keyCode == 13)
+      {
+        event.preventDefault();
+        $("#button-chatroom-new").trigger("click");
+        $('#chatroom_name').val("");
+      }
+    });
+
     $('#new_chatroom').submit( function(data) {
     MakeMessageChannel($('#chatroom_name').val());
   });
 
 
 });
-

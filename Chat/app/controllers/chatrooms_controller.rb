@@ -14,6 +14,8 @@ class ChatroomsController < ApplicationController
 
   # GET /chatrooms/new
   def new
+    @post = Post.new
+    @chatrooms = Chatroom.all
     @chatroom = Chatroom.new
   end
 
@@ -26,12 +28,15 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.user = current_user
+    # byebug
     respond_to do |format|
       if @chatroom.save
         format.html { redirect_to @chatroom, notice: 'Chatroom was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @chatroom }
       else
         format.html { render :new }
+        format.js { render :new }
         format.json { render json: @chatroom.errors, status: :unprocessable_entity }
       end
     end

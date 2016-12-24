@@ -18,10 +18,11 @@
 	padding: 10px 24px 10px 35px;
 	background-color: white;
 }
-#chatbox {
+
+.chatbox {
 	overflow-y: scroll;
 	height: 650px;
-    font-size: 15px;
+  font-size: 15px;
 }
 
 
@@ -91,18 +92,18 @@
 }
 
 
-#all { 
+#all {
     display: flex;
     flex-direction: column;
     height: 100vh;
    }
 
-#navbar { 
+#navbar {
     flex: 1;
     /*background-color: #f3f3f3;*/
    }
 
-#main { 
+#main {
     position: fixed;
     left: 19%;
     top: 20%;
@@ -111,7 +112,7 @@
     /*-webkit-filter: opacity(.2);*/
   	/*filter: opacity(.2);*/
    }
-#bckg { 
+#bckg {
 	flex: 20;
     display: block;
     background: url(slack);
@@ -137,13 +138,3 @@
   flex-direction: column;
   justify-content: center;
 }
-
-
-
-
-
-
-
-
-
-

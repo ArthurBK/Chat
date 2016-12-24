@@ -28,8 +28,9 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     # byebug
     # respond_to do |format|
+    name = Chatroom.find_by_id(@post.chatroom_id).name
       if @post.save
-        ActionCable.server.broadcast 'chatroom_channel',
+        ActionCable.server.broadcast "chatroom_#{name}_channel",
                                    content:  @post.content,
                                    name: current_user.name
         head :ok
@@ -74,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:content, :user_id)
+      params.require(:post).permit(:content, :chatroom_id, :user_id)
     end
 end
