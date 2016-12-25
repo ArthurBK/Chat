@@ -19,6 +19,16 @@
 	background-color: white;
 }
 
+.channel-name {
+  & > a {
+    color: white;
+    font-size: 20px;
+  }
+  &:hover{
+    background-color: #316EA2;
+  }
+}
+
 .chatbox {
 	overflow-y: scroll;
 	height: 650px;
@@ -137,4 +147,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#chatrooms {
+  background-color: #377BB5;
+border: 1px solid #316EA2;
+border-radius: 10px;
+height: 670px;
+
 }

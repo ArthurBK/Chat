@@ -6,8 +6,8 @@
 				<div class="col-xs-2 flexbox">
 				<div id="chatrooms" >
 					<% @chatrooms.each do |chatroom| %>
-					<div class="text-center">
-						<%= link_to chatroom.name, "#" %>
+					<div class="text-center channel-name">
+						<%= link_to "#" + chatroom.name, "#" %>
 					</div>
 					<% end %>
 					<%= render 'form', chatroom: @chatroom %>
