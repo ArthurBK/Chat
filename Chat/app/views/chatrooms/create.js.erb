@@ -1,3 +1,3 @@
-$("#chatrooms").append("<%= escape_javascript(render partial: "link", local: @chatroom ) %>");
+$("#chatrooms a").last().html("<%= escape_javascript(render partial: "link", local: @chatroom ) %>");
 $("#chatboxes").html("<div id=\"<%= escape_javascript(@chatroom.name) %>\" class=\"chatbox\"></div>");
 $("#post_chatroom_id").val(<%= escape_javascript(@chatroom.id.to_s) %>);

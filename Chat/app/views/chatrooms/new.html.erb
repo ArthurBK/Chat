@@ -10,7 +10,9 @@
 						<%= link_to "#" + chatroom.name, chatroom_path(chatroom), remote: true %>
 					</div>
 					<% end %>
-					<%= render 'form', chatroom: @chatroom %>
+					<!-- <div id="new_chat_name"> -->
+					<%= render 'form', chatroom: @chatroom, class: "hidden" %>
+					<!-- </div> -->
 				</div>
 				</div>
 				<div class="col-xs-8 rounded-border">
