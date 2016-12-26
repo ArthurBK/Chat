@@ -1,1 +1,5 @@
-<%= link_to @chatroom.name, "#" %>
+<div id="<%= @chatroom.name %>" class="chatbox">
+  <% @chatroom.posts.each do | post | %>
+  <p> <b> <%= User.find_by_id(post.user_id).name %> : </b> <%= post.content  %></p>
+  <% end %>
+</div>

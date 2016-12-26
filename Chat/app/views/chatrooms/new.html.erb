@@ -7,7 +7,7 @@
 				<div id="chatrooms" >
 					<% @chatrooms.each do |chatroom| %>
 					<div class="text-center channel-name">
-						<%= link_to "#" + chatroom.name, "#" %>
+						<%= link_to "#" + chatroom.name, chatroom_path(chatroom), remote: true %>
 					</div>
 					<% end %>
 					<%= render 'form', chatroom: @chatroom %>

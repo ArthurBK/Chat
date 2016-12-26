@@ -1,0 +1,2 @@
+$("#chatboxes").html("<%= escape_javascript(render partial: "chatroom", local: @chatroom ) %>");
+$("#post_chatroom_id").val(<%= escape_javascript(@chatroom.id.to_s) %>);

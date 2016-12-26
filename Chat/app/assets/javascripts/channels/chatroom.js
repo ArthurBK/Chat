@@ -5,8 +5,8 @@ $(document).on('turbolinks:load', function() {
     channel: 'ChatroomChannel',
     chatroom: chatroomName }, {
   received: function(data) {
-  console.log("#" + chatroomName);
-  console.log("received_data");
+  // console.log("#" + chatroomName);
+  // console.log("received_data");
     // $("#messages").removeClass('hidden')
     // return $('#messages').append(this.renderMessage(data));
     $("#" + chatroomName).append(this.renderMessage(data));
@@ -58,6 +58,10 @@ $(document).on('turbolinks:load', function() {
         $("#button-chatroom-new").trigger("click");
         $('#chatroom_name').val("");
       }
+    });
+
+    $('.channel-name a').each( function(key, val) {
+      MakeMessageChannel(val.innerText.slice(1));
     });
 
     $('#new_chatroom').submit( function(data) {
