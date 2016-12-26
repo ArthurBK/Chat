@@ -66,7 +66,7 @@ $(document).on('turbolinks:load', function() {
 
     $('#new_chatroom').submit( function(data) {
     MakeMessageChannel($('#chatroom_name').val());
-  });
+    });
 
 
 });
