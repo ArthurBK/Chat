@@ -21,8 +21,8 @@
 
 .channel-name {
   & > a {
-    color: white;
-    font-size: 20px;
+    color: #cddeff;
+    font-size: 15px;
   }
   &:hover{
     background-color: #316EA2;
@@ -35,6 +35,15 @@
   font-size: 15px;
 }
 
+#chatboxes {
+	height: 650px;
+  font-size: 15px;
+}
+
+#new_chat_plus {
+  color: #cddeff;
+  font-size: 16px;
+}
 
 #chatbox::-webkit-scrollbar{
   width: 18px;
@@ -70,10 +79,14 @@
 }
 
 #chatroom_name {
+  &:focus {
+    outline: none;
+  }
     border-radius: 13px;
     height: 35px;
     margin-bottom: 5px;
     flex: 1;
+    border: 1px solid #337ab7;
 }
 
 #post_content, #chatroom_content {
@@ -149,10 +162,32 @@
   justify-content: center;
 }
 
-#chatrooms {
-  background-color: #377BB5;
-border: 1px solid #316EA2;
-border-radius: 10px;
-height: 670px;
+.inline-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+#chatrooms {
+  & > :first-child {
+    margin: 10px 0 5px 0;
+    // background-color: yellow;
+  }
+  & i, span {
+    color: #9bb8f1;
+    font-size: 16px;
+  }
+  & i:hover {
+    color: #9bb8f1;
+    transform: scale(1.4);
+     cursor: pointer;
+    // transition: all .2s ease-in;
+  }
+  background-color: #377BB5;
+  border: 1px solid #316EA2;
+  border-radius: 10px;
+  height: 670px;
+  padding: 0 15px 0 15px;
+  width: 80%;
+  margin-left: 50px;
 }

@@ -25,6 +25,14 @@ $(document).on('turbolinks:load', function() {
 });
 }
 
+  // $('#post_content').emojiarea();
+  $('#new_chatroom').hide();
+  $('#plus_button').on("click", function(event){
+    // console.log("de");
+    $('#new_chatroom').show(1000);
+  });
+
+
   $("#chatrooms").on("click", function(event){
   // need to check if has firstChild
     // $("#" + event.target.firstChild.textContent).hide();
@@ -32,7 +40,7 @@ $(document).on('turbolinks:load', function() {
 
 
   $('#post_content').on("keydown", function(event) {
-    // console.log(event);
+    console.log(event);
     if (event.keyCode == 13)
     {
       event.preventDefault();

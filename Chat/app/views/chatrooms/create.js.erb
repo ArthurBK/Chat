@@ -1,3 +1,6 @@
-$("#chatrooms a").last().html("<%= escape_javascript(render partial: "link", local: @chatroom ) %>");
+$("#new_chatroom").before("<%= escape_javascript(render partial: "link", local: @chatroom ) %>");
 $("#chatboxes").html("<div id=\"<%= escape_javascript(@chatroom.name) %>\" class=\"chatbox\"></div>");
 $("#post_chatroom_id").val(<%= escape_javascript(@chatroom.id.to_s) %>);
+$('#new_chatroom').hide(1000);
+var count = parseInt($('#new_chat_plus').find('span')[0].innerText) + 1;
+$('#new_chat_plus').find('span')[0].innerText = count;
