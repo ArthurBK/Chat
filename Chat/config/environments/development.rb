@@ -6,7 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   # 10.13.7.7
 
-  config.action_cable.url = "ws://localhost:3000/cable"
+  config.action_cable.url = "ws://10.12.7.7:3000/cable"
   # config.web_console.whitelisted_ips = '10.13.7.7'
   config.cache_classes = false
   # config.action_cable.allowed_request_origins = ['http://0.0.0.0:3000']
