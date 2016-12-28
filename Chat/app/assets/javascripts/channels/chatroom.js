@@ -6,6 +6,7 @@ $(document).on('turbolinks:load', function() {
     chatroom: chatroomName }, {
   received: function(data) {
   // console.log("#" + chatroomName);
+  // console.log("#");
   // console.log("received_data");
     // $("#messages").removeClass('hidden')
     // return $('#messages').append(this.renderMessage(data));
@@ -40,7 +41,7 @@ $(document).on('turbolinks:load', function() {
 
 
   $('#post_content').on("keydown", function(event) {
-    console.log(event);
+    // console.log(event);
     if (event.keyCode == 13)
     {
       event.preventDefault();

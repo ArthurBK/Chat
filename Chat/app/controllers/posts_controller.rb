@@ -28,14 +28,11 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     # byebug
     # respond_to do |format|
-    name = Chatroom.find_by_id(@post.chatroom_id).name
       if @post.save
-        ActionCable.server.broadcast "chatroom_#{name}_channel",
-                                   content:  @post.content,
-                                   name: current_user.name
-        head :ok
         # format.html { redirect_to @post, notice: 'Post was successfully created.' }
         # format.json { render :show, status: :created, location: @post }
+        # format.js { }
+        head :ok
       else
         format.html { render :new }
         # format.json { render json: @post.errors, status: :unprocessable_entity }
