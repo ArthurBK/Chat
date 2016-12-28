@@ -5,13 +5,14 @@ $(document).on('turbolinks:load', function() {
     channel: 'ChatroomChannel',
     chatroom: chatroomName }, {
   received: function(data) {
-  // console.log("#" + chatroomName);
-  // console.log("#");
-  // console.log("received_data");
-    // $("#messages").removeClass('hidden')
-    // return $('#messages').append(this.renderMessage(data));
     $("#" + chatroomName).append(this.renderMessage(data));
-    $("#" + chatroomName).scrollTop($("#" + chatroomName)[0].scrollHeight);
+    console.log(data.chat_name);
+
+    if (($(".channel-name:contains('" + data.chat_name + "')").hasClass("active"))){
+      $("#" + chatroomName).scrollTop($("#" + chatroomName)[0].scrollHeight); }
+    else {
+      $(".channel-name:contains('" + data.chat_name + "')").addClass("bold");
+    }
   },
 
   subscribed: function() {
@@ -19,29 +20,25 @@ $(document).on('turbolinks:load', function() {
   },
 
   renderMessage: function(data) {
-    // $("#chatbox").scrollTop = $("#chatbox").scrollHeight;
-    // $("#chatbox").animate({scrollTop: $("#chatbox").height()});
     return "<p> <b>" + data.name + ": </b>" + data.content + "</p>";
   }
 });
 }
 
-  // $('#post_content').emojiarea();
   $('#new_chatroom').hide();
   $('#plus_button').on("click", function(event){
-    // console.log("de");
     $('#new_chatroom').show(1000);
   });
 
-
-  $("#chatrooms").on("click", function(event){
-  // need to check if has firstChild
-    // $("#" + event.target.firstChild.textContent).hide();
-  });
-
+      $(".channel-name").on("click", function(event){
+        $(".channel-name").each( function(key, elem) {
+          $(elem).removeClass("active");
+        });
+        $(event.currentTarget).addClass("active");
+        $(event.currentTarget).removeClass("bold");
+      });
 
   $('#post_content').on("keydown", function(event) {
-    // console.log(event);
     if (event.keyCode == 13)
     {
       event.preventDefault();
@@ -57,8 +54,6 @@ $(document).on('turbolinks:load', function() {
   $('#new_chatroom').on('ajax:success', function(e, data, status, xhr){
     $('#chatroom_name').val("");
   });
-
-
 
     $('#new_chatroom').on("keydown", function(event) {
       if (event.keyCode == 13)
@@ -76,6 +71,4 @@ $(document).on('turbolinks:load', function() {
     $('#new_chatroom').submit( function(data) {
     MakeMessageChannel($('#chatroom_name').val());
     });
-
-
 });
